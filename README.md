@@ -69,12 +69,15 @@ export class ButtonStore {
 ### Using a store turns your component into a observer
 ```typescript jsx
 import React from 'react';
-import { useStore } from 'use-store-mobx';
 import { CountStore } from './stores/count-store';
+import { useStore } from 'use-mobx-store';
+import { ButtonStore } from './stores/button-store';
 
 export const Button = () => {
   const countStore = useStore(CountStore);
+  const buttonStore = useStore(ButtonStore);
 
-  return <button onClick={countStore.increaseCounter}>I have been pressed {countStore.pressCount} times</button>;
+  return <button onClick={countStore.increaseCounter}>I have been pressed {buttonStore.handlePress} times</button>;
 };
+
 ```
